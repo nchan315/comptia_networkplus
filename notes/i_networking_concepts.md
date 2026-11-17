@@ -364,6 +364,14 @@ Copper connectors:
 
 ## 1.6: Compare and contrast network topologies, architectures, and types.
 
+Network design considerations
+- Performance: throughput, latency, jitter, and packet loss
+- Functionality: services and features the network support
+- Flexibility: easy to adapt to new changes without redesigning the network
+- Capacity: maximum amount of traffic
+- Availability: how much time the network is reachable; needs redundancy, failover, and fault tolerance
+- Scalability: how well the network works with more devices
+
 Network Topology: physical/logical arrangeent of nodes, devices, and data flow
 - Star/hub and spoke: all devices connect to central device (e.g. switch)
 - Mesh: multiple links to same place, redundant, fault-tolerant, used in WANs
@@ -384,3 +392,31 @@ Network Architecture: defines overall design, functional goals, SW/HW components
 - Traffic flows
     - North-south: traffic between different locations, needs different security controls
     - East-west: traffic between devices in same data center, fast response times
+
+## 1.7: Given a scenario, use appropriate IPv4 network addressing.
+
+IPv4 networking concepts
+- Public addresses: unique addresses used for external communication, can be accessed by every other device on the Internet
+- Private addresses: used internally, not advertised on the Internet, can be the same as other private addresses
+- Automatic Private IP Addressing (APIPA): 169.254.1.0 to 169.254.254.255, used by Microsoft OS to auto-assign an IP address if not given by DHCP server
+- RFC1918: *Address Allocation for Private Internets*, IETF standard that defines reserved private IPv4 address blocks
+- Loopback/localhost: 127.0.0.0/8, let computer talk to itself without sending data out to the network
+
+IPv4 address classes
+
+<div align="center">
+
+| Name                | Prefix            | Network Size (bits) |
+|---------------------|-------------------|---------------------|
+| Class A             | 0                 | 8                   |
+| Class B             | 10 (128 - 191)    | 16                  |
+| Class C             | 110 (192 - 223)   | 24                  |
+| Class D (multicast) | 1110 (224 - 239)  | 32                  |
+| Class E (reserved)  | 1111 (240 - 255)  | 32                  |
+
+</div>
+
+Subnetting: process of dividing a large IP network range into smaller sub-networks
+- `XXX.XXX.XXX.XXX/XX`, number after `/` is number of fixed bits
+- Classless Inter-domain Routing (CIDR): standard that replaces rigid class boundaries
+- Variable Length Subnet Mask (VLSM): practice of subnetting a network multiple times using different mask lengths
