@@ -272,4 +272,92 @@ Traffic types
 - Anycast: one sender, one-of-many recievers (only 1 receiver gets message)
 - Broadcast: one sender, everyone in network receives
 
+## 1.5: Compare and contrast transmission media and transceivers.
 
+Wireless
+- 802.11 standards: wireless networking standard managed by IEEE
+
+<div align="center">
+
+| IEEE Standard | Generation Name | Frequencies | Maximum theoretical link rate |
+| :-- | :-- | :-- | :-- |
+| 802.11a | - | 5 GHz | 6 - 54 Mbps |
+| 802.11b | - | 2.4 GHz | 1 - 11 Mbps |
+| 802.11g | - | 2.4 GHz | 6 - 54 Mbps |
+| 802.11n | Wi-Fi 4 | 2.4 GHz / 5 GHz | 72 - 600 Mbps |
+| 802.11ac | Wi-Fi 5 | 5 GHz | 433 - 6933 Mbps |
+| 802.11ax | Wi-Fi 6 and 6E | 2.4 GHz / 5 GHz / 6 GHz | 574 - 9608 Mbps |
+| 802.11be | Wi-Fi 7 | 2.4 GHz / 5 GHz / 6 GHz | 1376 - 46120 Mbps |
+
+</div>
+
+- Cellular: distributed wireless telecommunications system that divides a geographic area into small zones called cells, each serviced by a fixed-location transceiver or base station
+    - LTE (AKA 4G): fouther generation cellular networking, up to 150 Mbps
+    - 5G: fifth generation cellular networking, up to 10 Gbps
+        - due to increased speed, bandwidth becomes less of a constraint, more data con be processed in the cloud
+
+- Satellite: communicate to satellite if no other networking options are available
+    - high cost relative to terrestrial networking
+    - 100 Mbps download, 5 Mbps upload
+    - relatively high latency (approximately 250 ms, but Starlink advertises 40 ms)
+    - requires line of sight, may lose connectivity during a storm
+
+Wired: connects computers, switches, and routers using physical cables like Ethernet to provide fast, stable, and secure data transfer
+- 802.3 standards: wired networking standards managed by IEEE
+    - many standards have information in the standard name
+    - speed: 10 Mbps, 100 Mbps, 1000 Mbps, 2.5G, 5G, etc..
+    - signal types: baseband (modern Ethernet), broadband, passband
+    - media types: twisted pair copper (T), fiber (F), short wavelength light (SX), etc..
+    - e.g. 1000BASE-T: max data rate of 1000 Mbps, baseband signaling, twisted-pair copper cabling
+
+- Fiber communication: transmission by light, no RF signal (hard to monitor), good for long distances because signal is slow to degrade
+    - single-mode: long range communication (up to 100 km), expensive light source (e.g. laser beams)
+    - multimode fiber: short range communication (up to 2 km), inexpensive light source (e.g. LED)
+
+- Copper cabling: carries electrical signals for local area network and telephone systems
+    - twisted pair copper cabling: two wires with equal and opposite signals
+    - cables don't have speeds, electrical signal encodings determine data transfer rate
+    - cables have categories, specific standards need different cable categories
+    - direct attach copper (DAC) cable: cable with connector on both ends which link networking devices together
+        - coaxial cable: has single central conducted for singled-ended signals
+        - twinaxial cable: has two inner conductors, common on 10 Gbps Ethernet
+    - Plenum: fake ceilings that connect every working space, used for air conditioning, pipes, and networking cables
+        - since plenum cables share the air space, need to use specific cables in case of fires
+        - these cables are more fire resistant but not as flexible
+
+Transceivers: combines transmitter and receiver in a single component
+- Protocol: transceivers are built to support a specific protocol, must match on both ends
+    - Ethernet: the standard LAN protocol, transceivers connect switches, routers, and servers over copper or fiber
+    - Fibre Channel (FC): high-speed protocol used in storage area networks (SANs) to connect servers to storage
+        - lossless, in-order delivery, commonly 8/16/32/64 Gbps
+    
+- Form factors: physical size/shape of a modular transceiver that plugs into a port, allows swapping media types (copper, single-mode, multimode) without replacing the device
+    - Small form-factor pluggable (SFP): compact, hot-swappable transceiver, single lane
+        - SFP: up to 1 Gbps
+        - SFP+: up to 10 Gbps
+        - SFP28: up to 25 Gbps
+    - Quad small form-factor pluggable (QSFP): four lanes in one module, higher bandwidth and higher port density
+        - QSFP+: 4 x 10 Gbps = 40 Gbps
+        - QSFP28: 4 x 25 Gbps = 100 Gbps
+
+Fiber connectors:
+- Subscriber connector (SC): square fiber connector with push-pull latching, 2.5 mm ferrule
+    - nicknames: "square connector", "stick and click"
+- Local connector (LC): small form factor fiber connector with a latch, 1.25 mm ferrule (half the size of SC)
+    - common in SFP transceivers, usually in duplex pairs
+    - nickname: "little connector", "lucent connector"
+- Straight tip (ST): round fiber connector with a bayonet-style twist-lock
+    - older, common in legacy multimode networks
+    - nickname: "stick and twist"
+- Multi-fiber push on (MPO): single connector holding many fibers (commonly 12 or 24) in a rectangular ferrule
+    - used for high-density data center connections and 40/100 Gbps links
+
+Copper connectors:
+- RJ11: 6-position connector (usually 2 or 4 wires used), smaller than RJ45
+    - used for telephone lines and DSL
+- RJ45: 8-position, 8-conductor (8P8C) connector
+    - used for twisted-pair Ethernet cabling
+- F-type: threaded (screw-on) coaxial connector
+    - used for cable TV, cable modems, and satellite
+- Bayonet Neill–Concelman (BNC): coaxial connector with a quarter-turn bayonet lock
+    - used for legacy 10BASE2 Ethernet, CCTV/video, and test equipment
