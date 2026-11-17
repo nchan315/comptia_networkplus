@@ -361,3 +361,26 @@ Copper connectors:
     - used for cable TV, cable modems, and satellite
 - Bayonet Neill–Concelman (BNC): coaxial connector with a quarter-turn bayonet lock
     - used for legacy 10BASE2 Ethernet, CCTV/video, and test equipment
+
+## 1.6: Compare and contrast network topologies, architectures, and types.
+
+Network Topology: physical/logical arrangeent of nodes, devices, and data flow
+- Star/hub and spoke: all devices connect to central device (e.g. switch)
+- Mesh: multiple links to same place, redundant, fault-tolerant, used in WANs
+    - full mesh: every node is connected to all other nodes
+    - partial mesh: critical nodes connected to each other, edge nodes connect to a critical node
+- Hybrid: combination of one or more network topology
+- Spine and leaf: spine switches connect to all leafs, spines/leafs not connected to each other
+    - top-of-rack switching: used in data centers because it is redundant and fast
+- Point to point: one-to-one connection
+
+Network Architecture: defines overall design, functional goals, SW/HW components, communication protocols, security policies, and service models
+- Three-tier hierarchical model
+    - Core: center of network (e.g. web servers, databases, applications)
+    - Distribution: midpoint between core and users, manage data flow
+    - Access: where uses connect (e.g. end stations, printers)
+- Collapsed core: two-tiers (collasped core and access layer)
+    - good fit for small organiations, simpler to design and implement, but not as resilient
+- Traffic flows
+    - North-south: traffic between different locations, needs different security controls
+    - East-west: traffic between devices in same data center, fast response times
