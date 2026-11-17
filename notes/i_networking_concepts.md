@@ -210,3 +210,66 @@ Elasticity: ability to automatically add or remove resources in real time to mat
 Multitenancy: multiple customers (tenants) share the same physical cloud infrastructure while their data and resources are kept logically isolated
 - lowers costs through shared resources
 - risks: noisy neighbor (one tenant affecting others' performance), data isolation/security concerns
+
+## 1.4: Explain common networking ports, protocols, services, and traffic types.
+
+<div align="center">
+
+| Protocol                                               | Ports                | Description |
+| :---                                                   | :---                 | :---        |
+| File Transfer Protocol (FTP)                           | 20, 21 (TCP)         | transfers files between client and server; port 20 = data, port 21 = control; unencrypted |
+| Secure File Transfer Protocol (SFTP)                   | 22 (TCP)             | encrypted file transfer that runs over SSH |
+| Secure Shell (SSH)                                     | 22 (TCP)             | encrypted remote command-line access to devices |
+| Telnet                                                 | 23 (TCP)             | unencrypted remote command-line access (replaced by SSH) |
+| Simple Mail Transfer Protocol (SMTP)                   | 25 (TCP)             | sends email between mail servers and from clients to servers; unencrypted |
+| Domain Name System (DNS)                               | 53 (TCP/UDP)         | resolves domain names to IP addresses; UDP for queries, TCP for zone transfers/large responses |
+| Dynamic Host Configuration Protocol (DHCP)             | 67, 68 (UDP)         | automatically assigns IP addresses and network settings to clients; 67 = server, 68 = client |
+| Trivial File Transfer Protocol (TFTP)                  | 69 (UDP)             | simple file transfer with no authentication or directory browsing (e.g. device firmware/config files) |
+| Hypertext Transfer Protocol (HTTP)                     | 80 (TCP)             | transfers web pages; unencrypted |
+| Network Time Protocol (NTP)                            | 123 (UDP)            | synchronizes clocks between network devices |
+| Simple Network Management Protocol (SNMP)              | 161, 162 (UDP)       | monitors and manages network devices; 161 = queries to agents, 162 = traps sent to manager |
+| Lightweight Directory Access Protocol (LDAP)           | 389 (TCP)            | accesses and manages directory services (e.g. Active Directory); unencrypted |
+| Hypertext Transfer Protocol Secure (HTTPS)             | 443 (TCP)            | HTTP encrypted with TLS |
+| Server Message Block (SMB)                             | 445 (TCP)            | Windows file and printer sharing |
+| Syslog                                                 | 514 (UDP)            | sends log messages from devices to a central log server |
+| Simple Mail Transfer Protocol Secure (SMTPS)           | 587 (TCP)            | SMTP encrypted with TLS (STARTTLS) for client mail submission |
+| Lightweight Directory Access Protocol over SSL (LDAPS) | 636 (TCP)            | LDAP encrypted with SSL/TLS |
+| Structured Query Language (SQL) Server                 | 1433 (TCP)           | Microsoft SQL Server database connections |
+| Remote Desktop Protocol (RDP)                          | 3389 (TCP)           | graphical remote desktop access to Windows machines |
+| Session Initiation Protocol (SIP)                      | 5060, 5061 (TCP/UDP) | sets up, manages, and ends VoIP/video calls; 5060 = unencrypted, 5061 = encrypted (TLS) |
+
+</div>
+
+Port Numbers: assigned to different protocol and services so a user knows how and what to access at the other end of specific applications
+- 16-bit source/destination port, port number from 0 to 65535
+- well-known port numbers generally under 1024 and are permanently assigned
+- temporary port numbers are ephemeral and disappear when session is closed
+- TCP port number are different from UDP port numbers
+
+Internet Protocol (IP) types
+- Internet Control Message Protocol (ICMP): network-layer protocol used by routers and OS's to send error messages and status information
+- Transmission Control Protocol (TCP): connection-oriented, reliable delivery protocol
+- User Datagram Protocol (UDP): connectionless, unreliable delivery protocol
+- Generic Routing Encapsulation (GRE): tunnel between endpoints, encapsulates traffic inside of IP, not encrypted
+- Internet Protocol Security (IPSec): security for OSI Layer 3 
+    - provides authentication and encryption for every packet
+    - headers can be built in transport and tunnel mode
+        - transport mode: encrypts/authenticates payload only, original IP header is unchanged
+        - tunnel mode: encrypts/encapsulates entire original IP packet with new IP header
+    - Internet Key Exchange (IKE): how 2 devices agree on encryption/decryption keys (in order to set up authenticated, encrypted communication channels)
+        - must not send key across network
+        - builds a Security Association (SA)
+        - Phase I: use Diffie-Hellman to create shared secret key
+        - Phase II: coordinate ciphers and key sizes
+    - Authentication Header (AH): provides data integrity, data origin authentication, and replay protection for IP packets
+        - does not provide confidentiality, data is not encrypted
+    - Encapsulating Security Payload (ESP): provides data confidentiality, integrity, origin authentication, and replay protection
+        - encrypts the payload
+
+Traffic types
+- Unicast: one sender, one receiver
+- Multicast: one sender, many receivers
+- Anycast: one sender, one-of-many recievers (only 1 receiver gets message)
+- Broadcast: one sender, everyone in network receives
+
+
