@@ -420,3 +420,54 @@ Subnetting: process of dividing a large IP network range into smaller sub-networ
 - `XXX.XXX.XXX.XXX/XX`, number after `/` is number of fixed bits
 - Classless Inter-domain Routing (CIDR): standard that replaces rigid class boundaries
 - Variable Length Subnet Mask (VLSM): practice of subnetting a network multiple times using different mask lengths
+
+## 1.8: Summarize evolving use cases for modern network environments.
+
+Software-defined network (SDN): makes networks more programmable and centrally manageable
+- 3 layers:
+    - data plane (process network frames/packets, forwarding, trunking, encrypting, NAT)
+    - control plane (routing tables, session tables, NAT tables, dynamic routing updates)
+    - management plane (configuration changes, SSH, browser, API)
+- Change network behaviour through software instead of reconfiguring each device
+- Software-defined wide area network (SD-WAN): WAN built for the cloud
+    - Application aware: WAN knows which app is being used, makes routing decision based on application data
+    - Zero-touch provisioning: remote equipment is automatically configured (e.g. routers can manage packet routing)
+    - Transport agnostic: can use cable, fiber, 5G, etc..
+    - Central policy management: all changes made on 1 central management console
+
+Virtual Extensible Local Area Network (VXLAN): network virtualiation technology that extends Layer 2 Ethernet networks over Layer 3 infrastructure (sending encapsulated data through a VXLAN Tunnel on an IP network)
+- Data center interconnect (DCI): connect multiple data centers together although they are geographically far away
+- Layer 2 encapsulation: encapsulate Layer 2 frames inside Layer 4 UDP datagrams
+
+Zero trust architecture (ZTA)
+- Many networks are open past the firewall, however in ZTA, nothing is inherently trusted, everything must be verified
+- E.g. multi-factor authentiction, encryption, system permissions, additional firewalls, monitoring and analytics, etc..
+- Policy-based authentication
+    - Adaptive identity: consider source and requested resources, risk indicators (e.g. location, IP address, etc..)
+    - Policy-driven access control: combine adaptive identity with predetermined set of rules (e.g. time-of-day)
+- Authorization: after authentication, authorization is figuring out what rights/permissions a user has
+- Least privilege access: bare minimum rights and permissions for all user accounts
+
+Secure Access Secure Edge (SASE): combines SSE security with SD-WAN networking into a cloud-based architecture
+
+Security Service Edge (SSE): subset of SASE that secures access to the web, cloud services, and private applications
+
+Infrastructure as code (IaC): define infrastructure (servers, networks, applications) as code, many benefits:
+- Automation:
+    - Playbooks/templates/reusable tasks: steps to follow in different situations
+    - Configuration drift/compliance: ensure same configuration for all systems
+    - Upgrades: easy to make changes in deployed systems
+    - Dynamic inventories: query devices in real time and make changes based on results
+- Source control: makes it easy to manage changes
+    - Version control
+    - Central repository
+    - Conflict identification
+    - Branching
+
+IPv6 addressing
+- Mitigating address exhaustion: ran out of addresses in IPv4, IPv6 has larger address space with 128-bit addresses
+- groups of zeros can be abbreviated with double colon `::`
+- Compatibility requirements: not all devices can use IPv6 (i.e. legacy devices, embedded systems)
+    - Tunneling: encapsulate one protocol within another
+    - Dual stack: have option to use both IPv4 and IPv6
+    - NAT64: convert between IPv4 and IPv6 with NAT64 router in the middle
